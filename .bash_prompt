@@ -1,0 +1,13 @@
+# It occurs to me that I don't give a rat's ass about the git status when
+# my session is launched. I also don't care about 256 color terminal sessions.
+# Or anything other than my actual PS1-- speed the whole thing up.
+
+export MAGENTA="\033[1;31m"
+export ORANGE="\033[1;33m"
+export GREEN="\033[0;32m"
+export PURPLE="\033[1;35m"
+export WHITE="\033[1;37m"
+export BOLD=""
+export RESET="\033[m"
+
+export PS1="⚡ [${GREEN}\w${RESET}]--> "

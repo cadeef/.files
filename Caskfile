@@ -1,0 +1,20 @@
+# Install native apps
+# Usage: `brew bundle Caskfile`
+
+install caskroom/cask/brew-cask
+tap caskroom/versions
+
+cask install dropbox 2> /dev/null
+cask install google-chrome 2> /dev/null
+cask install google-drive 2> /dev/null
+cask install iterm2 2> /dev/null
+cask install textexpander 2> /dev/null
+cask install rdio 2> /dev/null
+cask install bittorrent-sync 2> /dev/null
+cask install keepassx0 2> /dev/null
+cask install evernote 2> /dev/null
+cask install airfoil 2> /dev/null
+cask install sublime-text3 2> /dev/null
+cask install firefox 2> /dev/null
+cask install virtualbox 2> /dev/null
+cask install vlc 2> /dev/null
