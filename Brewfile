@@ -39,6 +39,7 @@ install pv
 install curl
 install rename
 install tree
+install multitail
 install ucspi-tcp # `tcpserver` et al.
 
 # Remove outdated versions from the cellar
