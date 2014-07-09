@@ -103,15 +103,6 @@ function server() {
     python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port"
 }
 
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-function phpserver() {
-    local port="${1:-4000}"
-    local ip=$(ipconfig getifaddr en1)
-    sleep 1 && open "http://${ip}:${port}/" &
-    php -S "${ip}:${port}"
-}
-
 # Compare original and gzipped file size
 function gz() {
     local origsize=$(wc -c < "$1")
@@ -245,22 +236,6 @@ function unquarantine() {
     done
 }
 
-# Install Grunt plugins and add them as `devDependencies` to `package.json`
-# Usage: `gi contrib-watch contrib-uglify zopfli`
-function gi() {
-    npm install --save-dev ${*/#/grunt-}
-}
-
-# `m` with no arguments opens the current directory in TextMate, otherwise
-# opens the given location
-function m() {
-    if [ $# -eq 0 ]; then
-        mate .
-    else
-        mate "$@"
-    fi
-}
-
 # `s` with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
 function s() {
@@ -268,16 +243,6 @@ function s() {
         subl .
     else
         subl "$@"
-    fi
-}
-
-# `a` with no arguments opens the current directory in Atom Editor, otherwise
-# opens the given location
-function a() {
-    if [ $# -eq 0 ]; then
-        atom .
-    else
-        atom "$@"
     fi
 }
 
@@ -299,19 +264,6 @@ function o() {
     else
         open "$@"
     fi
-}
-
-# `np` with an optional argument `patch`/`minor`/`major`/`<version>`
-# defaults to `patch`
-function np() {
-    git pull --rebase && \
-    rm -rf node_modules && \
-    npm install && \
-    npm test && \
-    npm version ${1:=patch} && \
-    npm publish && \
-    git push origin master && \
-    git push origin master --tags
 }
 
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
