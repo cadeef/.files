@@ -1,11 +1,14 @@
 # Shortcuts
-alias g="git"
-alias h="history"
-alias j="jobs"
-alias diff="colordiff"
+alias g='git'
+alias h='history'
+alias j='jobs'
+alias diff='colordiff'
 
 # Open a new instance of KeepassX
-alias kp="open -n /Applications/KeePassX.app/"
+alias kp='open -n /Applications/KeePassX.app/'
+
+# vm_stat is *close* to vmstat (only for os x, need to overload)
+alias vmstat='vm_stat'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
