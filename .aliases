@@ -10,6 +10,11 @@ alias kp='open -n /Applications/KeePassX.app/'
 # vm_stat is *close* to vmstat (only for os x, need to overload)
 alias vmstat='vm_stat'
 
+# Vagrant land
+alias vc='vagrant ssh'
+alias vs='vagrant status'
+alias vu='vagrant up'
+
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
