@@ -41,6 +41,7 @@ install rename
 install tree
 install multitail
 install ucspi-tcp # `tcpserver` et al.
+install pstree
 
 # Remove outdated versions from the cellar
 cleanup
