@@ -273,3 +273,9 @@ function o() {
 function tre() {
     tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
+
+# Arbitrary window titles
+function title {
+  printf "\033]0;%s\007" "$1"
+}
+
