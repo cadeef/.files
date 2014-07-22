@@ -1,6 +1,9 @@
 # Make vim the default editor
 export EDITOR='vim'
 
+# Enlightened paths for cd
+export CDPATH=".:$HOME:$CDPATH"
+
 # Larger bash history
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
