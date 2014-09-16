@@ -2,7 +2,4 @@
 # my session is launched. I also don't care about 256 color terminal sessions.
 # Or anything other than my actual PS1-- speed the whole thing up.
 
-export GREEN="\033[0;32m"
-export RESET="\033[0m"
-
-export PS1="⚡ [${GREEN}\w${RESET}]--> "
+export PS1="⚡ [\[$(tput setaf 2)\]\w\[$(tput sgr0)\]]--> "
