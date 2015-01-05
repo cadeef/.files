@@ -3,6 +3,8 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
+export OSFAMILY=$(uname)
+
 # Add RVM support
 source "$HOME/.rvm/scripts/rvm"
 
