@@ -31,7 +31,7 @@ function install() {
 
     cd ${src_dir} || (echo "FATAL: Could change to $src_dir"; exit 5)
 
-    for dir in {bin,bash.d}; do
+    for dir in {bin,bash.d,state}; do
         path="$install_dir/$dir"
         [ -d ${path} ] || mkdir -v -p ${path}
         [ -d ./${dir} ] && rsync -ah --no-perms ./${dir}/ ${path}/
