@@ -9,6 +9,7 @@ function git_setup() {
                         read -p 'Setup git commit user? [y|n]: ' -n 1 setup_resp
 
                         if [[ ${setup_resp} =~ ^[Yy]$ ]]; then
+                            echo
                             read -p 'Git name (user.name): ' df_git_user_tmp
                             read -p 'Git email (user.email): ' df_git_email_tmp
 
