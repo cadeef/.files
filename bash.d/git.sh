@@ -13,14 +13,14 @@ function git_setup() {
                             read -p 'Git name (user.name): ' df_git_user_tmp
                             read -p 'Git email (user.email): ' df_git_email_tmp
 
-                            git config --global user.name ${df_git_user_tmp}
+                            git config --global user.name "${df_git_user_tmp}"
                             git config --global user.email ${df_git_email_tmp}
                             touch ${df_state_dir}/git_configured
                         else
                             touch ${df_state_dir}/git_conf_nag
                         fi
                     else
-                        git config --global user.name ${df_git_user}
+                        git config --global user.name "${df_git_user}"
                         git config --global user.email ${df_git_email}
                         touch ${df_state_dir}/git_configured
                     fi
