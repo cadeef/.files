@@ -22,7 +22,7 @@ function install() {
     for dir in {bin,bash.d}; do
         path="$install_dir/$dir"
         [ -d ${path} ] || mkdir -v -p ${path}
-        rsync -ah --no-perms ./${dir}/ ${path}/
+        [ -d ./${dir} ] && rsync -ah --no-perms ./${dir}/ ${path}/
     done
 
     rsync -ah --no-perms --exclude='bash.d' ./dots/ ${HOME}/
