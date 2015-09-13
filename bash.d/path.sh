@@ -6,3 +6,6 @@ export PATH="$HOME/bin:$PATH"
 
 # Add `/usr/local/go/bin` to the `$PATH`
 export PATH="/usr/local/go/bin:$PATH"
+
+# Add `.files/bin` to the `$PATH`
+export PATH="$HOME/.files/bin:$PATH"
