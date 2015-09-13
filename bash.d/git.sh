@@ -2,7 +2,7 @@
 function git_setup() {
     if [ ! -f ${df_state_dir}/git_configured ]; then
         if [ ! -f ${df_state_dir}/git_conf_nag ]; then
-            if which -s git; then
+            if which git &> /dev/null; then
                 if ! (grep -q user.name ${HOME}/.gitconfig && grep -q user.email ${HOME}/.gitconfig); then
 
                     if [[ -z ${df_git_user} ]] || [[ -z ${df_git_email} ]]; then
