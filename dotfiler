@@ -40,7 +40,7 @@ function install() {
         [ -d ./${dir} ] && rsync -ah --no-perms ./${dir}/ ${path}/
     done
 
-    rsync -ah --no-perms --exclude='bash.d' ./dots/ ${HOME}/
+    rsync -ah --no-perms ./dots/ ${HOME}/
     cp -f ./dotfiler ${df_install_dir}/bin
 
     if [[ ! -f ${df_install_dir}/config ]]; then
@@ -51,6 +51,8 @@ df_repo_url=${df_repo_url}
 df_state_dir=${df_install_dir}/state
 EOF
     fi
+
+    echo -e '\nINSTALL COMPLETE\n\n'
 
     source ~/.bash_profile
 }
