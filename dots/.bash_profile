@@ -2,7 +2,7 @@
 export OSFAMILY=$(uname)
 
 # Load shell dotfiles:
-for file in $(ls ~/.files/dotfiles.d/*.sh); do
+for file in $(ls ~/.files/bash.d/*.sh); do
     [ -r "$file" ] && [ -f "$file" ] && source "$file"
 done
 unset file
