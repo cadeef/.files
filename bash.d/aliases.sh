@@ -36,7 +36,7 @@ alias gurl='curl --compressed'
 alias week='date +%V'
 
 # IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
@@ -72,7 +72,7 @@ done
 alias reload="exec $SHELL -l"
 
 # OSX-Specific
-if [[ "$OSFAMILY" == 'Darwin' ]]; then
+if [[ ${OSFAMILY} == 'Darwin' ]]; then
     # Empty the Trash on all mounted volumes and the main HDD
     # Also, clear Apple’s System Logs to improve shell startup speed
     alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
