@@ -1,2 +1,2 @@
 # Add RVM support
-source "$HOME/.rvm/scripts/rvm"
+[ -d ${HOME}/.rvm ] && source "$HOME/.rvm/scripts/rvm"
