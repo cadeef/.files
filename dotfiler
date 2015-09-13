@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 
+# Config defaults
 install_dir="$HOME/.files"
 src_dir='/tmp/.files'
 repo_url='https://github.com/cadeef/.files.git'
 
 function main() {
+    load_config
+
     if [ "$1" == "--force" -o "$1" == "-f" ]; then
         install
     else
-        read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
+        read -p "This may overwrite existing files in your home directory. Are you sure? [y|n]: " -n 1
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]; then
             install
@@ -18,29 +21,54 @@ function main() {
 
 function get_source() {
 
-    if [ -d ${src_dir} ]; then
-        cd ${src_dir} && \
+    if [ -d ${df_src_dir} ]; then
+        cd ${df_src_dir} && \
         git pull origin master
     else
-        git clone ${repo_url} ${src_dir}
+        git clone ${df_repo_url} ${df_src_dir}
     fi
 }
 
 function install() {
     get_source
 
-    cd ${src_dir} || (echo "FATAL: Could change to $src_dir"; exit 5)
+    cd ${df_src_dir} || (echo "FATAL: Could not change to $src_dir"; exit 5)
 
-    for dir in {bin,bash.d,state}; do
-        path="$install_dir/$dir"
+    for dir in {bin,state,bash.d}; do
+        path="$df_install_dir/$dir"
         [ -d ${path} ] || mkdir -v -p ${path}
         [ -d ./${dir} ] && rsync -ah --no-perms ./${dir}/ ${path}/
     done
 
     rsync -ah --no-perms --exclude='bash.d' ./dots/ ${HOME}/
-    cp -f ./dotfiler ${install_dir}/bin
+    cp -f ./dotfiler ${df_install_dir}/bin
+
+    if [[ ! -f ${df_install_dir}/config ]]; then
+        cat << EOF > "${install_dir}/config"
+df_install_dir=${df_install_dir}
+df_src_dir=${df_src_dir}
+df_repo_url=${df_repo_url}
+df_state_dir=${df_install_dir}/state
+EOF
+    fi
 
     source ~/.bash_profile
+}
+
+function load_config() {
+    [ -r ${install_dir}/config ] && source ${install_dir}/config
+
+    if [[ -z ${df_install_dir} ]]; then
+        df_install_dir=$install_dir
+    fi
+    if [[ -z ${df_src_dir} ]]; then
+        df_src_dir=$src_dir
+    fi
+    if [[ -z ${df_repo_url} ]]; then
+        df_repo_url=$repo_url
+    fi
+
+    df_state_dir=${df_install_dir}/state
 }
 
 main

@@ -1,9 +1,12 @@
 
 export OSFAMILY=$(uname)
 
-# Load shell dotfiles:
+# Load config if it is readable
+[ -r ${HOME}/.files/config ] && source ${HOME}/.files/config
+
+# Load bash.d:
 for file in $(ls ~/.files/bash.d/*.sh); do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file"
+    [ -r ${file} ] && source ${file}
 done
 unset file
 
