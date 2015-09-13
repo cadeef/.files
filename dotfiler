@@ -1,32 +1,43 @@
 #!/usr/bin/env bash
 
 install_dir="$HOME/.files"
+src_dir='/tmp/.files'
+repo_url='https://github.com/cadeef/.files.git'
 
+function get_source() {
 
-cd "$(dirname "${BASH_SOURCE}")"
-# git pull origin master
+    if [ -d ${src_dir} ]; then
+        cd ${src_dir} && \
+        git pull origin master
+    else
+        git clone ${repo_url} ${src_dir}
+    fi
+}
 
-function doIt() {
+function install() {
+    get_source
+
+    cd ${src_dir} || (echo "FATAL: Could change to $src_dir"; exit 5)
 
     for dir in {bin,bash.d}; do
         path="$install_dir/$dir"
-        [ -d "$path" ] || mkdir -v -p "$path"
-        rsync -avh --no-perms "./$dir/" "$path/"
+        [ -d ${path} ] || mkdir -v -p ${path}
+        rsync -ah --no-perms ./${dir}/ ${path}/
     done
 
-    rsync -avh --no-perms --exclude='bash.d' ./dots/ "$HOME/"
+    rsync -ah --no-perms --exclude='bash.d' ./dots/ ${HOME}/
+    cp -f ./dotfiler ${install_dir}/bin
 
     source ~/.bash_profile
 }
 
-
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
-    doIt
+    install
 else
     read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        doIt
+        install
     fi
 fi
-unset doIt
+unset install
