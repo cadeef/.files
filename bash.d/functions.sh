@@ -276,6 +276,9 @@ function tre() {
 
 # Arbitrary window titles
 function title {
-  printf "\033]0;%s\007" "$1"
+    if [[ -z "$1" ]]; then
+        printf "\033]0;%s\007" $(hostname)
+    else
+        printf "\033]0;%s\007" "$1"
+    fi
 }
-
