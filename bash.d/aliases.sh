@@ -4,6 +4,9 @@ alias h='history'
 alias j='jobs'
 alias diff='colordiff'
 
+# Random Git
+alias gc='git clone'
+
 # Vagrant land
 alias vc='vagrant ssh'
 alias vs='vagrant status'
