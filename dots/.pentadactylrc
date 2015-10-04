@@ -1,0 +1,8 @@
+"1.2pre
+
+loadplugins '\.(js|penta)$'
+group user
+set cdpath=''
+set passkeys=newsblur.com:jk<Left><Right><Up><Down><Space>sS
+
+" vim: set ft=pentadactyl:
