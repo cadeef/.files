@@ -11,7 +11,7 @@ export HISTCONTROL=ignoredups
 # Turn on timestamps for bash history
 export HISTTIMEFORMAT="%F %T "
 # Make some commands not show up in history
-export HISTIGNORE='ls:cd:cd -:pwd:exit:date:* --help'
+export HISTIGNORE='ls:cd:cd -:pwd:exit:date:* --help:ll'
 
 # Prefer US English and use UTF-8
 export LANG='en_US.UTF-8'
