@@ -282,3 +282,9 @@ function title {
         printf "\033]0;%s\007" "$1"
     fi
 }
+
+# ssk - remove line from ~/.ssh/known_hosts
+function ssk {
+    local host=${1}
+    ssh-keygen -R ${host}
+}
