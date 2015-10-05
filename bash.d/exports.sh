@@ -32,6 +32,9 @@ export MANPAGER='less -X'
 # Always enable colored `grep` output
 export GREP_OPTIONS='--color=auto'
 
+# Handle ansi color gracefully is less
+export LESS='-R'
+
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
