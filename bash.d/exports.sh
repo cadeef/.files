@@ -38,4 +38,7 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 # Help Docker find itself
 export DOCKER_HOST='tcp://0.0.0.0:2375'
 
-export GOPATH=~/code/go
+export GOPATH=${HOME}/code/go
+
+# Convenience
+export c_code=${HOME}/code
