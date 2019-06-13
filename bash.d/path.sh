@@ -11,7 +11,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/.files/bin:$PATH"
 
 # Add rust tools
-export PATH="$HOME/.cargo/bin"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ $OSFAMILY == 'Darwin' ]; then
     # Brew support
