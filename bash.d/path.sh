@@ -11,7 +11,7 @@ export PATH="$HOME/.files/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Add go bin support
-export PATH="$PATH:$HOME/go/bin"
+export PATH="$HOME/go/bin:$PATH"
 
 if [ $OSFAMILY == 'Darwin' ]; then
     # Brew support
