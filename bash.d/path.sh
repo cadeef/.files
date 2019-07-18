@@ -4,14 +4,14 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
-# Add `/usr/local/go/bin` to the `$PATH`
-export PATH="/usr/local/go/bin:$PATH"
-
 # Add `.files/bin` to the `$PATH`
 export PATH="$HOME/.files/bin:$PATH"
 
 # Add rust tools
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Add go bin support
+export PATH="$PATH:$HOME/go/bin"
 
 if [ $OSFAMILY == 'Darwin' ]; then
     # Brew support
