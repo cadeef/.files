@@ -20,6 +20,8 @@ brew "automake"
 brew "bash"
 # Programmable completion for Bash 3.2
 brew "bash-completion"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Robust and modular log colorizer
 brew "ccze"
 # Color-highlighted diff(1) output
