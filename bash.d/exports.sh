@@ -29,9 +29,6 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # Don’t clear the screen after quitting a manual page
 export MANPAGER='less -X'
 
-# Always enable colored `grep` output
-export GREP_OPTIONS='--color=auto'
-
 # Handle ansi color gracefully is less
 export LESS='-R'
 

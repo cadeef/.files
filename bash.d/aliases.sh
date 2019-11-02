@@ -38,6 +38,9 @@ alias gurl='curl --compressed'
 # Get week number
 alias week='date +%V'
 
+# GREP_OPTIONS deprecated, use alias instead
+alias grep='grep --color=auto'
+
 # IP addresses
 alias pubip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
