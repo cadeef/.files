@@ -2,10 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
-tap "homebrew/versions"
 tap "puppetlabs/puppet"
-# Search tool like grep, but optimized for programmers
-brew "ack"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -24,8 +21,6 @@ brew "bash-completion"
 brew "bat"
 # Robust and modular log colorizer
 brew "ccze"
-# Color-highlighted diff(1) output
-brew "colordiff"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Cluster ssh tool for Terminal.app
@@ -88,8 +83,6 @@ brew "iftop"
 brew "libtool"
 # Creates dependencies in makefiles
 brew "makedepend"
-# Scalable distributed version control system
-brew "mercurial"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
 # 'traceroute' and 'ping' in a single tool
@@ -100,8 +93,6 @@ brew "multitail"
 brew "ngrep"
 # Port scanning utility for large networks
 brew "nmap"
-# Manage multiple Node.js versions
-brew "nvm"
 # Tool for creating identical machine images for multiple platforms
 brew "packer"
 # Parallel gzip
@@ -110,10 +101,10 @@ brew "pigz"
 brew "pstree"
 # Monitor data's progress through a pipe
 brew "pv"
-# Persistent key-value database, with built-in net interface
-brew "redis"
 # Perl-powered file rename script with many helpful built-ins
 brew "rename"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # Proxy server that works as a poor man's VPN
