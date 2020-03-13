@@ -60,6 +60,8 @@
     # Make `git rebase` safer on OS X
     # More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
     trustctime = false
+    # Don't make me quit a pager when there is less than a single screen of output
+    pager = less -F
 
 [color]
     # Use colors in Git commands that are capable of colored output when

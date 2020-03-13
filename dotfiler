@@ -1,65 +1,79 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 # Config defaults
-install_dir="$HOME/.files"
+install_dir="${HOME}/.files"
 src_dir='/tmp/.files'
 repo_url='https://github.com/cadeef/.files.git'
 
-function main() {
+main() {
     load_config
+    local option=${1:-ask}
 
-    if [ "$1" == "--force" -o "$1" == "-f" ]; then
+    if [[ ${option} == "--force" || ${option} == "-f" ]]; then
         install
     else
-        read -p "This may overwrite existing files in your home directory. Are you sure? [y|n]: " -n 1
+        echo -n "This may overwrite existing files in your home directory. Are you sure? [y|n]: "
+        read -r -n 1 REPLY
         echo
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
+        if [[ ${REPLY} =~ ^[Yy]$ ]]; then
             install
         fi
     fi
+    unset option
 }
 
-function get_source() {
+get_source() {
 
-    if [ -d ${df_src_dir} ]; then
-        cd ${df_src_dir} && \
-        git pull origin master
+    if [[ -d ${df_src_dir} ]]; then
+        cd "${df_src_dir}" &&
+            git pull origin master
     else
-        git clone ${df_repo_url} ${df_src_dir}
+        git clone "${df_repo_url}" "${df_src_dir}"
     fi
 }
 
-function install() {
+install() {
     get_source
 
-    cd ${df_src_dir} || (echo "FATAL: Could not change to $src_dir"; exit 5)
+    run_scripts 'pre'
+
+    cd "${df_src_dir}" || (
+        echo "FATAL: Could not change to ${df_src_dir}"
+        exit 5
+    )
 
     for dir in {bin,state,bash.d}; do
         path="$df_install_dir/$dir"
-        [ -d ${path} ] || mkdir -v -p ${path}
-        [ -d ./${dir} ] && rsync -ah --no-perms ./${dir}/ ${path}/
+        [[ -d ${path} ]] || mkdir -v -p "${path}"
+        [[ -d "./${dir}" ]] && rsync -ah --no-perms "./${dir}/" "${path}/"
     done
 
-    rsync -ah --no-perms ./dots/ ${HOME}/
+    rsync -ah --no-perms ./dots/ "${HOME}/"
     chmod +x ./dotfiler
-    cp -f ./dotfiler ${df_install_dir}/bin
+    cp -f ./dotfiler "${df_install_dir}/bin"
 
     if [[ ! -f ${df_install_dir}/config ]]; then
         cat << EOF > "${install_dir}/config"
 df_install_dir=${df_install_dir}
 df_src_dir=${df_src_dir}
 df_repo_url=${df_repo_url}
-df_state_dir=${df_install_dir}/state
 EOF
     fi
 
+    run_scripts 'post'
+
     echo -e '\nINSTALL COMPLETE\n\n'
 
-    source ~/.bash_profile
+    # Don't bother following to .bash_profile, it gets checked elsewhere
+    # shellcheck disable=SC1090
+    source "${HOME}/.bash_profile"
 }
 
-function load_config() {
-    [ -r ${install_dir}/config ] && source ${install_dir}/config
+load_config() {
+    # shellcheck disable=SC1090
+    [[ -r "${install_dir}/config" ]] && source "${install_dir}/config"
 
     if [[ -z ${df_install_dir} ]]; then
         df_install_dir=$install_dir
@@ -70,8 +84,22 @@ function load_config() {
     if [[ -z ${df_repo_url} ]]; then
         df_repo_url=$repo_url
     fi
+}
 
-    df_state_dir=${df_install_dir}/state
+run_scripts() {
+    local prefix=${1:-none}
+
+    if [[ ${prefix} =~ ^pre|post$ ]]; then
+        for script in "${df_src_dir}/scripts/${prefix}"_*.sh; do
+            if [[ -r ${script} ]]; then
+                echo "Running ${script}"
+                bash "${script}"
+            fi
+        done
+    else
+        echo "run_scripts only accepts pre or post"
+        exit 1
+    fi
 }
 
 main

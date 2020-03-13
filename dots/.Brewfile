@@ -31,6 +31,8 @@ brew "curl"
 brew "cython"
 # Message bus system, providing inter-application communication
 brew "dbus"
+# Secure communications between a client and a DNS resolver
+brew "dnscrypt-proxy", restart_service: true
 # GNOME XML library
 brew "libxml2"
 # Measure DNS performance by simulating network conditions
@@ -79,6 +81,8 @@ brew "htop"
 brew "hugo"
 # Display an interface's bandwidth usage
 brew "iftop"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Generic library support script
 brew "libtool"
 # Creates dependencies in makefiles
@@ -127,6 +131,7 @@ brew "wget"
 brew "whois"
 # Graphical network analyzer and capture tool
 brew "wireshark", link: false
+cask "wireshark"
 cask "vagrant"
 cask "virtualbox"
 cask "puppetlabs/puppet/pdk"
