@@ -28,8 +28,12 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-# Don’t clear the screen after quitting a manual page
-export MANPAGER='less -X'
+# Use bat if installed, otherwise less
+if hash bat &> /dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+else
+    export MANPAGER='less -X'
+fi
 
 # Handle ansi color gracefully is less
 export LESS='-R'
