@@ -42,7 +42,7 @@
     # Find commits by commit message
     fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
     # Remove branches that have already been merged with master (and avoid blowing away master)
-    dm = "!git branch --merged | grep -Ev '^\*|([[:space:]]+master$)' | xargs -n 1 git branch -d"
+    dm = "!git branch --merged | grep -Ev '^\\*|([[:space:]]+master$)' | xargs -n 1 git branch -d"
 
 [apply]
     # Detect whitespace errors when applying a patch
@@ -101,5 +101,10 @@
 [push]
     default = matching
 
+# Set pull strategy to merge
 [pull]
     rebase = true
+
+# Show diff in commit messages
+[commit]
+    verbose = true
