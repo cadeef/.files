@@ -2,7 +2,7 @@
 
 # ssa - ssh-add wrapper
 
-function ssa() {
+ssa() {
     if [[ $# -eq 0 ]]; then
         ssh-add -l
     elif [[ ${1} == '-d' ]]; then

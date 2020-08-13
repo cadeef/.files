@@ -2,7 +2,7 @@
 
 # Git setup and miscellaney
 
-function git_setup() {
+git_setup() {
     # $df_* are loaded by sourcing ${HOME}/.files/config in .bash_profile
     # shellcheck disable=SC2154
     if [[ -n ${df_git_email} && -n ${df_git_user} ]]; then

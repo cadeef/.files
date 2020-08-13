@@ -13,7 +13,7 @@ digga() {
 # Add note to Notes.app (OS X 10.8)
 # Usage: `note 'title' 'body'` or `echo 'body' | note`
 # Title is optional
-function note() {
+note() {
     local title
     local body
     if [ -t 0 ]; then
