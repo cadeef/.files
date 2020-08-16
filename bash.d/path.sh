@@ -6,6 +6,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 
+# Add `~/.local/bin` because it's a thing
+export PATH="$HOME/.local/bin:$PATH"
+
 # Add `.files/bin` to the `$PATH`
 export PATH="$HOME/.files/bin:$PATH"
 
