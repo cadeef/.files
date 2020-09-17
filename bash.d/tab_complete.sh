@@ -12,8 +12,27 @@ fi
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults
 
-# INFO: I can't decide if I really care about completion enough to load everything
-# from brew instead of just specific completions
-#
-# Load brew-installed tab complete
-# [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+# Loading completion files for all programs installed by brew takes forever and I really only care about
+# completions for a few programs, only load those. Yes, this could be way prettier. Meh.
+
+# Only care if this happens on a laptop
+if [[ $OSFAMILY == 'Darwin' ]]; then
+
+    progs_to_complete=(brew brew-services doctl gh git-completion.bash rg.bash)
+
+    # Disable auto-loading from complete.d
+    export BASH_COMPLETION_DIR="duh"
+    export BASH_COMPLETION_COMPAT_DIR="$BASH_COMPLETION_DIR"
+
+    # Load up helper functions
+    # shellcheck disable=SC1091
+    [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+    # Load
+    for prog in "${progs_to_complete[@]}"; do
+        # shellcheck disable=SC1090
+        [[ -r "/usr/local/etc/bash_completion.d/${prog}" ]] && . "/usr/local/etc/bash_completion.d/${prog}"
+
+    done
+
+fi

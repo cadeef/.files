@@ -22,3 +22,8 @@ if [ "$OSFAMILY" == 'Darwin' ]; then
     # Brew support
     export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 fi
+
+if [ "$OSFAMILY" == 'Linux' ]; then
+    # Brew support
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+fi
