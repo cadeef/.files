@@ -1,27 +1,37 @@
 # shellcheck shell=bash
 
-# Shellcheck attempts to be helpful here but gets in the way, yes I know it's bad.
+prompt_command() {
+    if [[ ${PWD} =~ ${HOME}/code ]]; then
+        PROMPT_EMOJI="🔪"
+        PROMPT_HOSTNAME=""
+        PROMPT_PWD="${PWD/${HOME}\/code\//}"
+    elif [[ ${OSFAMILY} == 'Darwin' ]]; then
+        PROMPT_EMOJI="⚡"
+        PROMPT_HOSTNAME=""
+        PROMPT_PWD="${PWD/${HOME}/~}"
+    elif [[ $(hostname) =~ vm\.local$ ]]; then
+        PROMPT_EMOJI="🌵"
+        PROMPT_HOSTNAME="(${HOSTNAME})"
+        PROMPT_PWD="${PWD/${HOME}/\~}"
+    else
+        PROMPT_EMOJI="🎈"
+        PROMPT_HOSTNAME="(${HOSTNAME})"
+        PROMPT_PWD="${PWD/${HOME}/\~}"
+    fi
 
-if [[ ${OSFAMILY} == 'Darwin' ]]; then
-    # shellcheck disable=SC2089
-    PROMPT_COMMAND="echo -ne \"\033]0;$1⚡ [${PWD}]\007\""
-    PS1="${WINDOW_TITLE}⚡ [\[$(tput setaf 2)\]\w\[$(tput sgr0)\]]--> "
-elif [[ $(hostname) =~ vm\.local$ ]]; then
-    # shellcheck disable=SC2089
-    PROMPT_COMMAND="echo -ne \"\033]0;$1🌵 (${HOSTNAME})[${PWD}]\007\""
-    PS1="🌵 (\H)[\[$(tput setaf 2)\]\w\[$(tput sgr0)\]]--> "
-else
-    # shellcheck disable=SC2089
-    PROMPT_COMMAND="echo -ne \"\033]0;$1🎈 (${HOSTNAME})[${PWD}]\007\""
-    PS1="🎈 (\H)[\[$(tput setaf 2)\]\w\[$(tput sgr0)\]]--> "
-fi
+    case "${TERM}" in
+        xterm* | rxvt*)
+            PROMPT_WINDOW_TITLE="\[\033]0;${PROMPT_EMOJI} ${PROMPT_HOSTNAME}${PROMPT_PWD}\007\]"
+            ;;
+        *)
+            PROMPT_WINDOW_TITLE=""
+            ;;
+    esac
 
-# Override if we are in my code directory
-if [[ ${PWD} =~ ${HOME}/code ]]; then
-    # shellcheck disable=SC2089
-    PROMPT_COMMAND="echo -ne \"\033]0;$1🔪 [${PWD/${HOME}\/code\//}]\007\""
+    PS1="${PROMPT_WINDOW_TITLE}${PROMPT_EMOJI} ${PROMPT_HOSTNAME}[\[$(tput setaf 2)\]${PROMPT_PWD}\[$(tput sgr0)\]]--> "
+}
 
-fi
+PROMPT_COMMAND=prompt_command
+export PROMPT_COMMAND
 
-# shellcheck disable=SC2090
-export PS1 PROMPT_COMMAND
+prompt_command
