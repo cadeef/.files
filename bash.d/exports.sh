@@ -4,7 +4,7 @@
 export EDITOR='vim'
 
 # Enlightened paths for cd
-export CDPATH=".:$HOME:$CDPATH"
+export CDPATH=".:${HOME}/code:${CDPATH}"
 
 # Larger bash history
 export HISTSIZE=32768
@@ -43,8 +43,3 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
 # Help Docker find itself
 # export DOCKER_HOST='tcp://0.0.0.0:2375'
-
-export GOPATH=${HOME}/go
-
-# Convenience
-export c_code=${HOME}/code
