@@ -8,15 +8,17 @@ prompt_command() {
     elif [[ ${OSFAMILY} == 'Darwin' ]]; then
         PROMPT_EMOJI="⚡"
         PROMPT_HOSTNAME=""
-        PROMPT_PWD="${PWD/${HOME}/~}"
+        # FIXME: tilde needs to be escaped on macos, probably brew bash version (newer) related.
+        # I'm too lazy to figure out why right now and the logic makes it convenient to override.
+        PROMPT_PWD="${PWD/${HOME}/\~}"
     elif [[ $(hostname) =~ vm\.local$ ]]; then
         PROMPT_EMOJI="🌵"
         PROMPT_HOSTNAME="(${HOSTNAME})"
-        PROMPT_PWD="${PWD/${HOME}/\~}"
+        PROMPT_PWD="${PWD/${HOME}/~}"
     else
         PROMPT_EMOJI="🎈"
         PROMPT_HOSTNAME="(${HOSTNAME})"
-        PROMPT_PWD="${PWD/${HOME}/\~}"
+        PROMPT_PWD="${PWD/${HOME}/~}"
     fi
 
     case "${TERM}" in
