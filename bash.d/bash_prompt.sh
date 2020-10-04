@@ -21,6 +21,11 @@ prompt_command() {
         PROMPT_PWD="${PWD/${HOME}/~}"
     fi
 
+    # Call out running as root
+    if [[ ${LOGNAME} == "root" ]]; then
+        PROMPT_EMOJI="⛔️"
+    fi
+
     case "${TERM}" in
         xterm* | rxvt*)
             PROMPT_WINDOW_TITLE="\[\033]0;${PROMPT_EMOJI} ${PROMPT_HOSTNAME}${PROMPT_PWD}\007\]"
