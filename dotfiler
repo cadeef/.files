@@ -75,15 +75,9 @@ load_config() {
     # shellcheck disable=SC1090
     [[ -r "${install_dir}/config" ]] && source "${install_dir}/config"
 
-    if [[ -z ${df_install_dir} ]]; then
-        df_install_dir=$install_dir
-    fi
-    if [[ -z ${df_src_dir} ]]; then
-        df_src_dir=$src_dir
-    fi
-    if [[ -z ${df_repo_url} ]]; then
-        df_repo_url=$repo_url
-    fi
+    df_install_dir=${df_install_dir:-${install_dir}}
+    df_src_dir=${df_src_dir:-${src_dir}}
+    df_repo_url=${df_repo_url:-${repo_url}}
 }
 
 run_scripts() {
