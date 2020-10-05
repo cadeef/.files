@@ -15,9 +15,6 @@ export PATH="$HOME/.files/bin:$PATH"
 # Add rust tools
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Add go bin support
-export PATH="$HOME/go/bin:$PATH"
-
 if [ "$OSFAMILY" == 'Darwin' ]; then
     # Brew support
     export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
@@ -25,5 +22,5 @@ fi
 
 if [ "$OSFAMILY" == 'Linux' ]; then
     # Brew support
-    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 fi
