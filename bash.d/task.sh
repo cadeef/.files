@@ -33,7 +33,7 @@ task_add() {
     if is_in_path "reminders"; then
         local text
         if [[ -t 0 ]]; then
-            text="${1}" # argument
+            text="${*}" # argument
         else
             text=$(cat) # pipe
         fi
