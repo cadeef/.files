@@ -72,6 +72,17 @@ alias badge="tput bel"
 # Reload the shell (i.e. invoke as a login shell)
 alias reload='exec "$SHELL" -l'
 
+# Use my extended superman function for man
+alias man='superman'
+
+# `task` shortcuts
+alias t='task list'
+alias tl='task lists'
+alias ta='task add'
+alias tc='task complete'
+alias to='task open'
+alias tsync='task sync'
+
 # OSX-Specific
 if [[ ${OSFAMILY} == 'Darwin' ]]; then
     # Empty the Trash on all mounted volumes and the main HDD

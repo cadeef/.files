@@ -10,7 +10,7 @@ digga() {
     dig +nocmd "$1" any +multiline +noall +answer
 }
 
-# Add note to Notes.app (OS X 10.8)
+# Add note to Notes.app
 # Usage: `note 'title' 'body'` or `echo 'body' | note`
 # Title is optional
 note() {
@@ -72,10 +72,10 @@ o() {
 
 # Arbitrary window titles
 title() {
-    if [[ -z $1 ]]; then
-        printf "\033]0;%s\007" "$(hostname)"
+    if [[ -z ${1} ]]; then
+        printf "\[\033]0;%s\007\]" "$(hostname)"
     else
-        printf "\033]0;%s\007" "$1"
+        printf "\[\033]0;%s\007\]" "${1}"
     fi
 }
 
@@ -83,4 +83,26 @@ title() {
 ssk() {
     local host=${1}
     ssh-keygen -R "${host}"
+}
+
+# superman - augment man
+superman() {
+    # ride_or_die "cheat" || return 1
+
+    case $(type -t "${1}") in
+        builtin)
+            help -m "${1}" | bat -p -l man
+            ;;
+        file)
+            man "${1}"
+            ;;
+        alias)
+            echo "Alias: ${1}"
+            alias | grep "${1}"
+            ;;
+        *)
+            echo "Docs not found for ${1}"
+            ;;
+    esac
+
 }
