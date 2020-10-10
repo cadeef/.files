@@ -87,19 +87,18 @@ ssk() {
 
 # superman - augment man
 superman() {
-    # ride_or_die "cheat" || return 1
-
     case $(type -t "${1}") in
         builtin)
             help -m "${1}" | bat -p -l man
             ;;
         file)
-            man "${1}"
+            /usr/bin/man "${1}"
             ;;
-        alias)
-            echo "Alias: ${1}"
-            alias | grep "${1}"
-            ;;
+        # Turns out this is an awful idea since I alias practically everything...
+        # alias)
+        #     echo "Alias: ${1}"
+        #     alias | grep "${1}="
+        #     ;;
         *)
             echo "Docs not found for ${1}"
             ;;
