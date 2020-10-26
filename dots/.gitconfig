@@ -110,3 +110,7 @@
 # Show diff in commit messages
 [commit]
     verbose = true
+
+# Github has swapped to using main as the default branch it's a good idea
+[init]
+    defaultBranch = main
