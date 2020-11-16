@@ -47,6 +47,8 @@
     dm = "!git branch --merged | grep -Ev '^\\*|([[:space:]]+master$)' | xargs -n 1 git branch -d"
     # Use new switch syntax for creating branches
     bc = switch -c
+    # Copy current branch to clipboard (MacOS); stolen from https://github.com/holman/dotfiles/blob/master/bin/git-copy-branch-name
+    cbn = "!f() { git rev-parse --abbrev-ref HEAD | tr -d '\n' | tr -d ' ' | pbcopy; }; f"
 
 [apply]
     # Detect whitespace errors when applying a patch
