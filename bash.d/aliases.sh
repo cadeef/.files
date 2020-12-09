@@ -78,6 +78,9 @@ alias man='superman'
 # Hugo serve
 alias hs='hugo serve'
 
+# Run all pre-commit tests
+alias pcr='pre-commit run -a'
+
 # `task` shortcuts
 alias t='task list'
 alias tl='task lists'
