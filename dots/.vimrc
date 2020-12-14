@@ -1,5 +1,4 @@
-" Use the Molokai theme (originally created for TextMate by Wimer Hazenberg)
-colorscheme molokai
+colorscheme brogrammer
 
 " Make Vim more useful
 set nocompatible
