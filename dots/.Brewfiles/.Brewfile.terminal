@@ -1,0 +1,50 @@
+# Output from `brew bundle dump --describe`
+
+# Bourne-Again SHell, a UNIX command interpreter
+brew "bash"
+# Programmable completion for Bash 3.2
+brew "bash-completion"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
+# Collection of GNU find, xargs, and locate
+brew "findutils"
+# GNU awk utility
+brew "gawk"
+# GNU internationalization (i18n) and localization (l10n) library
+brew "gettext"
+# Distributed revision control system
+brew "git"
+# Syntax-highlighting pager for git and diff output
+brew "git-delta"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Collection of tools that nobody wrote when UNIX was young
+brew "moreutils"
+# 'traceroute' and 'ping' in a single tool
+brew "mtr"
+# Tail multiple files in one terminal simultaneously
+brew "multitail"
+# Library for command-line editing
+brew "readline"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Add a public key to a remote machine's authorized_keys file
+brew "ssh-copy-id"
+# Proxy server that works as a poor man's VPN
+brew "sshuttle"
+# Very fast implementation of tldr in Rust
+brew "tealdeer"
+# User interface to the TELNET protocol (built from macOS Sierra sources)
+brew "telnet"
+# Internet file retriever
+brew "wget"
+# Lookup tool for domain names and other internet resources
+brew "whois"
+# Newer: Vi 'workalike' with many additional features
+brew "vim"

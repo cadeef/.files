@@ -1,0 +1,51 @@
+# Output from `brew bundle dump --describe`
+
+tap "cadeef/tap", "git@github.com:cadeef/homebrew-tap.git"
+tap "keith/formulae"
+
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Python code formatter
+brew "black"
+# Utility that creates projects from templates
+brew "cookiecutter"
+# Lint your Python code for style and logical errors
+brew "flake8"
+# GitHub command-line tool
+brew "gh"
+# Command-line utility for uploading Gists
+brew "gist"
+# Configurable static site generator
+brew "hugo"
+# Interactive computing in Python
+brew "ipython"
+# CLI for Node.js style checker and lint tool for Markdown files
+brew "markdownlint-cli"
+# Simple tool to make locally trusted development certificates
+brew "mkcert"
+# Experimental optional static type checker for Python
+brew "mypy"
+# Netlify command-line tool
+brew "netlify-cli"
+# Python package management tool
+brew "poetry"
+# Framework for managing multi-language pre-commit hooks
+brew "pre-commit"
+# Safe, concurrent, practical language
+brew "rust"
+# Experimental Rust compiler front-end for IDEs
+brew "rust-analyzer"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Autoformat shell script source code
+brew "shfmt"
+# Command-line interface for SQLite
+brew "sqlite"
+# Newer: Vi 'workalike' with many additional features
+brew "vim"
+
+brew "cadeef/tap/cade-task", args: ["HEAD"]
+brew "keith/formulae/reminders-cli"
+
+cask "vagrant"
+cask "virtualbox"
