@@ -4,7 +4,7 @@
 alias g='git'
 alias h='history'
 alias j='jobs'
-alias diff='colordiff'
+alias diff='delta'
 
 # Random Git
 alias gc='git clone'
