@@ -43,10 +43,16 @@ unquarantine() {
 # `s` with no arguments opens the current directory in Sublime Text, otherwise
 # opens the given location
 s() {
-    if [[ $# -eq 0 ]]; then
-        subl .
+    if [[ -z "$WSL_DISTRO_NAME" ]]; then
+        subl_binary="subl"
     else
-        subl "$@"
+        subl_binary="/mnt/c/Program Files/Sublime Text/subl.exe"
+    fi
+
+    if [[ $# -eq 0 ]]; then
+        "$subl_binary" .
+    else
+        "$subl_binary" "$@"
     fi
 }
 

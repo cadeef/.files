@@ -96,4 +96,4 @@ run_scripts() {
     fi
 }
 
-main
+main "$@"
