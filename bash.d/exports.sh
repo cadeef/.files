@@ -40,6 +40,3 @@ export LESS='-R'
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
-
-# Help Docker find itself
-# export DOCKER_HOST='tcp://0.0.0.0:2375'
