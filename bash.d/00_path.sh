@@ -17,7 +17,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 if [ "$OSFAMILY" == 'Darwin' ]; then
     # Brew support
-    export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+    export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
 fi
 
 if [ "$OSFAMILY" == 'Linux' ]; then
