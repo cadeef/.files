@@ -25,12 +25,12 @@ brew "markdownlint-cli"
 brew "mkcert"
 # Experimental optional static type checker for Python
 brew "mypy"
-# Netlify command-line tool
-brew "netlify-cli"
 # Python package management tool
 brew "poetry"
 # Framework for managing multi-language pre-commit hooks
 brew "pre-commit"
+# Interpreted, interactive, object-oriented programming language
+brew "python3"
 # Safe, concurrent, practical language
 brew "rust"
 # Experimental Rust compiler front-end for IDEs
@@ -48,4 +48,3 @@ brew "cadeef/tap/cade-task", args: ["HEAD"]
 brew "keith/formulae/reminders-cli"
 
 cask "vagrant"
-cask "virtualbox"
