@@ -30,6 +30,8 @@ brew "moreutils"
 brew "mtr"
 # Tail multiple files in one terminal simultaneously
 brew "multitail"
+# Execute binaries from Python packages in isolated environments
+brew "pipx"
 # Library for command-line editing
 brew "readline"
 # Search tool like grep and The Silver Searcher

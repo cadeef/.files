@@ -44,7 +44,7 @@ brew "sqlite"
 # Newer: Vi 'workalike' with many additional features
 brew "vim"
 
-brew "cadeef/tap/cade-task", args: ["HEAD"]
+# brew "cadeef/tap/cade-task", args: ["HEAD"]
 brew "keith/formulae/reminders-cli"
 
 cask "vagrant"

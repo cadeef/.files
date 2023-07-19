@@ -19,7 +19,25 @@ if [[ $(uname) == 'Darwin' ]]; then
     brew bundle install --file "${HOME}/.Brewfiles/.Brewfile.dev"
 
     # Install virtualbox if for some reason we are on a non-arm system
-    if [[ $(uname -p != "arm") ]]; then
+    if [[ $(uname -p) != "arm" ]]; then
         brew install --cask virtualbox
     fi
+fi
+
+# Install pipx-based tools (pipx installed by brew ☝️)
+pipx_tools=(cade-task)
+
+if hash pipx &>/dev/null; then
+    pipx_installed=$(pipx list --short | awk '{print $1}')
+
+    for tool in "${pipx_tools[@]}"; do
+        if [[ ! "${pipx_installed[*]}" =~ ${tool} ]]; then
+            pipx install "${tool}"
+        fi
+    done
+
+    # Upgrade installed packages
+    pipx upgrade-all
+else
+    echo "WARNING: pipx not found, tools not installed: ${pipx_tools[*]} "
 fi
