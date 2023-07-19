@@ -54,12 +54,16 @@ install() {
     chmod +x ./dotfiler
     cp -f ./dotfiler "${df_install_dir}/bin"
 
-    if [[ ! -f ${df_install_dir}/config ]]; then
+    config_file="${df_install_dir}/config"
+    if [[ ! -f ${config_file} ]]; then
         cat << EOF > "${install_dir}/config"
 df_install_dir=${df_install_dir}
 df_src_dir=${df_src_dir}
 df_repo_url=${df_repo_url}
 EOF
+
+    echo "Config file (${config_file}) didn't exist, you probably want to set df_git_user and df_git_email"
+
     fi
 
     run_scripts 'post'
