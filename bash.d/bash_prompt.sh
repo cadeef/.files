@@ -5,7 +5,7 @@ prompt_command() {
         PROMPT_EMOJI="🔪"
         PROMPT_HOSTNAME=""
         PROMPT_PWD="${PWD/${HOME}\/code\//}"
-    elif [[ ${OSFAMILY} == 'Darwin' || -n "$WSL_DISTRO_NAME" ]]; then
+    elif [[ ${OSFAMILY} == 'Darwin' || -n "${WSL_DISTRO_NAME-}" ]]; then
         PROMPT_EMOJI="⚡"
         PROMPT_HOSTNAME=""
         # FIXME: tilde needs to be escaped on macos, probably brew bash version (newer) related.

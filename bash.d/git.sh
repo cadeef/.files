@@ -5,7 +5,7 @@
 git_setup() {
     # $df_* are loaded by sourcing ${HOME}/.files/config in .bash_profile
     # shellcheck disable=SC2154
-    if [[ -n ${df_git_email} && -n ${df_git_user} ]]; then
+    if [[ -n ${df_git_email-} && -n ${df_git_user-} ]]; then
         if ! grep -q 'email' "${HOME}/.gitconfig"; then
             git config --global user.email "${df_git_email}"
         fi
