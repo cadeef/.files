@@ -24,6 +24,10 @@ brew "git"
 brew "git-delta"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Handy way to save and run project-specific commands
+brew "just"
+# Linux virtual machines
+brew "lima"
 # Collection of tools that nobody wrote when UNIX was young
 brew "moreutils"
 # 'traceroute' and 'ping' in a single tool
@@ -36,6 +40,8 @@ brew "pipx"
 brew "readline"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Extremely fast Python linter, written in Rust
+brew "ruff"
 # Add a public key to a remote machine's authorized_keys file
 brew "ssh-copy-id"
 # Proxy server that works as a poor man's VPN
