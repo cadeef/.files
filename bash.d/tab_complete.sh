@@ -18,7 +18,7 @@ complete -W "NSGlobalDomain" defaults
 # Only care if this happens on a laptop
 if [[ $OSFAMILY == 'Darwin' ]]; then
 
-    progs_to_complete=(brew brew-services doctl gh git-completion.bash rg.bash)
+    progs_to_complete=(brew brew-services gh git-completion.bash rg.bash)
 
     # Disable auto-loading from complete.d
     export BASH_COMPLETION_DIR="duh"
@@ -26,12 +26,12 @@ if [[ $OSFAMILY == 'Darwin' ]]; then
 
     # Load up helper functions
     # shellcheck disable=SC1091
-    [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+    [[ -r "/opt/homebrew/etc/profile.d/bash_completion.sh" ]] && . "/opt/homebrew/etc/profile.d/bash_completion.sh"
 
     # Load
     for prog in "${progs_to_complete[@]}"; do
         # shellcheck disable=SC1090
-        [[ -r "/usr/local/etc/bash_completion.d/${prog}" ]] && . "/usr/local/etc/bash_completion.d/${prog}"
+        [[ -r "/opt/homebrew/etc/bash_completion.d/${prog}" ]] && . "/opt/homebrew/etc/bash_completion.d/${prog}"
 
     done
 
