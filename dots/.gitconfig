@@ -26,7 +26,7 @@
     # Commit all changes and push
     cap = !git add -A && git commit -av && git push
     # Switch to a branch, creating it if necessary
-    go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+    go = "!f() { git switch -c \"$1\" 2> /dev/null || git switch \"$1\"; }; f"
     # Show verbose output about tags, branches or remotes
     tags = tag -l
     branches = branch -a
@@ -45,8 +45,6 @@
     fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
     # Remove branches that have already been merged with master (and avoid blowing away master)
     dm = "!f() { git branch --merged | grep -Ev '^\\*|([[:space:]]+master|main$)' | xargs -n 1 git branch -d; }; f"
-    # Use new switch syntax for creating branches
-    bc = switch -c
     # Copy current branch to clipboard (MacOS); stolen from https://github.com/holman/dotfiles/blob/master/bin/git-copy-branch-name
     cbn = "!f() { git rev-parse --abbrev-ref HEAD | tr -d '\n' | tr -d ' ' | pbcopy; }; f"
 

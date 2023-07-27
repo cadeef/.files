@@ -6,6 +6,8 @@ alias h='history'
 alias j='jobs'
 alias diff='delta'
 
+alias mkt='cd $(mktemp -d)'
+
 # Random Git
 alias gc='git clone'
 
