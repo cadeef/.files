@@ -29,7 +29,7 @@ export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # Use bat if installed, otherwise less
-if hash bat &> /dev/null; then
+if is_in_path "bat"; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 else
     export MANPAGER='less -X'
