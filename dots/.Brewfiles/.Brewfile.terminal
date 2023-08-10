@@ -56,3 +56,4 @@ brew "wget"
 brew "whois"
 # Newer: Vi 'workalike' with many additional features
 brew "vim"
+brew "yq"
