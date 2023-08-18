@@ -4,7 +4,7 @@ set -euo pipefail
 
 # Config defaults
 install_dir="${HOME}/.files"
-src_dir='/tmp/.files'
+src_dir=$(mktemp -d)
 repo_url='https://github.com/cadeef/.files.git'
 
 main() {
@@ -25,13 +25,7 @@ main() {
 }
 
 get_source() {
-
-    if [[ -d ${df_src_dir} ]]; then
-        cd "${df_src_dir}" &&
-            git pull origin master
-    else
-        git clone "${df_repo_url}" "${df_src_dir}"
-    fi
+    git clone "${df_repo_url}" "${df_src_dir}"
 }
 
 install() {
@@ -58,7 +52,6 @@ install() {
     if [[ ! -f ${config_file} ]]; then
         cat << EOF > "${install_dir}/config"
 df_install_dir=${df_install_dir}
-df_src_dir=${df_src_dir}
 df_repo_url=${df_repo_url}
 EOF
 
