@@ -25,7 +25,7 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 
 # Install pipx-based tools (pipx installed by brew ☝️)
-pipx_tools=(cade-task sqlite-utils)
+pipx_tools=(cade-task sqlite-utils pyinstrument)
 
 if hash pipx &>/dev/null; then
     pipx_installed=$(pipx list --short | awk '{print $1}')
