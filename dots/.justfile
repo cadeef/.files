@@ -9,7 +9,7 @@ default:
   -[[ {{status}} == "start" ]] && limactl start docker
 
 
-[no-cd]
 # 1password-cli: run command with .env variables
+[no-cd]
 op +command:
   op run --env-file .env --no-masking -- {{command}}
