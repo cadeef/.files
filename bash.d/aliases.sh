@@ -91,6 +91,10 @@ alias tc='task complete'
 alias to='task open'
 alias tsync='task sync'
 
+# Just
+# shellcheck disable=SC2139
+alias j="just --justfile ${HOME}/.justfile"
+
 # OSX-Specific
 if [[ ${OSFAMILY} == 'Darwin' ]]; then
     # Empty the Trash on all mounted volumes and the main HDD
