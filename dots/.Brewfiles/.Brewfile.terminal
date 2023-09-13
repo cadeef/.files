@@ -1,5 +1,6 @@
 # Output from `brew bundle dump --describe`
 
+brew "atuin"
 # Bourne-Again SHell, a UNIX command interpreter
 brew "bash"
 # Programmable completion for Bash 3.2
