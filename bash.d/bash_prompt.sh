@@ -38,8 +38,8 @@ prompt_command() {
     PS1="${PROMPT_WINDOW_TITLE}${PROMPT_EMOJI} ${PROMPT_HOSTNAME}[\[$(tput setaf 2)\]${PROMPT_PWD}\[$(tput sgr0)\]]--> "
 }
 
-PROMPT_COMMAND=prompt_command
-export PROMPT_COMMAND
+# Load prompt with precmd from bash-preexec
+precmd_functions+=(prompt_command)
 
 prompt_command
 
