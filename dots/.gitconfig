@@ -115,7 +115,8 @@
     insteadOf = "gist:"
 
 [push]
-    default = matching
+    default = current
+    autoSetupRemote = true
 
 # Set pull strategy to merge
 [pull]
