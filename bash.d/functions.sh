@@ -111,3 +111,25 @@ superman() {
     esac
 
 }
+
+# Overload `lima`` to start instances before connecting
+# Additionally, allow the shorter `lima` to connect to any instance
+lima() {
+    local instance="${1:-default}"
+    local status
+    status=$(limactl list --format json "${instance}" | jq -r '.status')
+
+    # Bail if instance doesn't exist
+    if [[ -z ${status} ]]; then
+    	return 1
+    fi
+
+    # Start instance if it isn't running
+    if [[ ${status} != "Running" ]]; then
+    	echo "Instance (${instance}) isn't running, starting..."
+        limactl start "${instance}"
+    fi
+
+    # Connect via ssh
+    limactl shell "${instance}"
+}
