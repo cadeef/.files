@@ -40,3 +40,6 @@ export LESS='-R'
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
+
+# Set Poetry's venv to ./.venv
+export POETRY_VIRTUALENVS_IN_PROJECT="true"
