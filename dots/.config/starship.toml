@@ -7,12 +7,12 @@ ${custom.huh} $directory(\($git_branch$git_status\))$python $character
 format = '\[[$path](green)\]'
 
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style) '
+format = '[$symbol$branch(:$remote_branch)]($style)'
 symbol = ''
 style = 'red'
 
 [git_status]
-format = '([$all_status$ahead_behind]($style))'
+format = '( [$all_status$ahead_behind]($style))'
 style = 'blue'
 
 [python]
