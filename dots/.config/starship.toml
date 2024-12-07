@@ -1,0 +1,25 @@
+
+format = '''
+${custom.huh} $directory(\($git_branch$git_status\))$python $character
+'''
+
+[directory]
+format = '\[[$path](green)\]'
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+symbol = ''
+style = 'red'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style))'
+style = 'blue'
+
+[python]
+format = ' [${symbol}(\($virtualenv\))]($style)'
+
+[custom.huh]
+command = "echo 🔪"
+disabled = false
+format = '$output'
+when = 'test "${PWD##$HOME/code/}" != "${PWD}"'
