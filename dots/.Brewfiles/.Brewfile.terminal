@@ -47,6 +47,8 @@ brew "ruff"
 brew "ssh-copy-id"
 # Proxy server that works as a poor man's VPN
 brew "sshuttle"
+# Cross-shell prompt for astronauts
+brew "starship"
 # Very fast implementation of tldr in Rust
 brew "tealdeer"
 # User interface to the TELNET protocol (built from macOS Sierra sources)
