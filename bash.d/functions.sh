@@ -133,3 +133,22 @@ lima() {
     # Connect via ssh
     limactl shell "${instance}"
 }
+
+# Create a temporary python environment
+# Accepts packages for install as arguments
+mkp() {
+    temp_dir="$(mktemp -d)"
+    # Change to temp_dir
+    cd "${temp_dir}" || ( echo "Failed cd to ${temp_dir}" && return 1 )
+    # Initialize environment
+    uv init --app
+    # Add dev dependencies
+    uv add --dev ipython devtools
+    # Add packages from $@
+    if [ $# -gt 0 ]; then
+        uv add "$@"
+    fi    
+    # Print any relevant info
+    echo "source ${temp_dir}/.venv/bin/activate"
+}
+
