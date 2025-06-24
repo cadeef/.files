@@ -3,7 +3,6 @@
 # Shortcuts
 alias g='git'
 alias h='history'
-alias j='jobs'
 alias diff='delta'
 
 alias mkt='cd $(mktemp -d)'
@@ -93,7 +92,8 @@ alias tsync='task sync'
 
 # Just
 # shellcheck disable=SC2139
-alias j="just --justfile ${HOME}/.justfile"
+alias jj="just --justfile ${HOME}/.justfile"
+alias j='just'
 
 # OSX-Specific
 if [[ ${OSFAMILY} == 'Darwin' ]]; then
