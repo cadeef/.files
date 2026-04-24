@@ -2,7 +2,12 @@
 
 # Create a new directory and enter it
 mkd() {
-    mkdir -p "$@" && cd "$@" || echo "Failed to cd"
+    if [[ $# -ne 1 ]]; then
+        echo "Usage: mkd <directory>"
+        return 1
+    fi
+
+    mkdir -p "$1" && cd "$1" || echo "Failed to cd"
 }
 
 # All the dig info
@@ -151,4 +156,3 @@ mkp() {
     # Print any relevant info
     echo "source ${temp_dir}/.venv/bin/activate"
 }
-
