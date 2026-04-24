@@ -15,7 +15,7 @@ create_symlink_if_not_exist() {
 # MacOS-specific
 if [[ $(uname) == 'Darwin' ]]; then
     # Application Support (Local Config)
-    create_symlink_if_not_exist "${HOME}/Library/Application Support", "${HOME}/as"
+    create_symlink_if_not_exist "${HOME}/Library/Application Support" "${HOME}/as"
     # iCloud
     create_symlink_if_not_exist "${HOME}/Library/Mobile Documents/com~apple~CloudDocs" "${HOME}/icloud"
 fi
