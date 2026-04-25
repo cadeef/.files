@@ -228,7 +228,10 @@ mkp() {
 
     temp_dir="$(mktemp -d)"
     # Change to temp_dir
-    cd "${temp_dir}" || ( echo "Failed cd to ${temp_dir}" && return 1 )
+    cd "${temp_dir}" || {
+        echo "Failed cd to ${temp_dir}"
+        return 1
+    }
     # Initialize environment
     uv init --app
     # Add dev dependencies
