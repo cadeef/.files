@@ -6,6 +6,7 @@ set -euo pipefail
 install_dir="${HOME}/.files"
 src_dir=$(mktemp -d)
 repo_url='https://github.com/cadeef/.files.git'
+repo_ref=''
 
 main() {
     load_config
@@ -26,9 +27,21 @@ main() {
 
 get_source() {
     git clone "${df_repo_url}" "${df_src_dir}"
+
+    if [[ -n ${df_repo_ref} ]]; then
+        git -C "${df_src_dir}" checkout "${df_repo_ref}"
+    else
+        echo "WARNING: df_repo_ref is not set; using the remote default branch."
+    fi
+
+    echo "Using dotfiles revision $(git -C "${df_src_dir}" rev-parse --verify HEAD)"
 }
 
 install() {
+    local config_file
+    local dir
+    local path
+
     get_source
 
     run_scripts 'pre'
@@ -50,9 +63,10 @@ install() {
 
     config_file="${df_install_dir}/config"
     if [[ ! -f ${config_file} ]]; then
-        cat << EOF > "${install_dir}/config"
+        cat << EOF > "${config_file}"
 df_install_dir=${df_install_dir}
 df_repo_url=${df_repo_url}
+df_repo_ref=${df_repo_ref}
 EOF
 
     echo "Config file (${config_file}) didn't exist, you probably want to set df_git_user and df_git_email"
@@ -64,33 +78,39 @@ EOF
     echo -e '\nINSTALL COMPLETE\n\n'
 
     # Don't bother following to .bash_profile, it gets checked elsewhere
-    # shellcheck disable=SC1090
+    # shellcheck disable=SC1091
     source "${HOME}/.bash_profile"
 }
 
 load_config() {
-    # shellcheck disable=SC1090
+    # shellcheck disable=SC1091
     [[ -r "${install_dir}/config" ]] && source "${install_dir}/config"
 
     df_install_dir=${df_install_dir:-${install_dir}}
     df_src_dir=${df_src_dir:-${src_dir}}
     df_repo_url=${df_repo_url:-${repo_url}}
+    df_repo_ref=${df_repo_ref:-${repo_ref}}
 }
 
 run_scripts() {
     local prefix=${1:-none}
+    local script
 
-    if [[ ${prefix} =~ ^pre|post$ ]]; then
-        for script in "${df_src_dir}/scripts/${prefix}"_*.sh; do
-            if [[ -r ${script} ]]; then
-                echo "Running ${script}"
-                bash "${script}"
-            fi
-        done
-    else
-        echo "run_scripts only accepts pre or post"
-        exit 1
-    fi
+    case ${prefix} in
+        pre|post)
+            ;;
+        *)
+            echo "run_scripts only accepts pre or post"
+            exit 1
+            ;;
+    esac
+
+    for script in "${df_src_dir}/scripts/${prefix}"_*.sh; do
+        if [[ -r ${script} ]]; then
+            echo "Running ${script}"
+            bash "${script}"
+        fi
+    done
 }
 
 main "$@"
