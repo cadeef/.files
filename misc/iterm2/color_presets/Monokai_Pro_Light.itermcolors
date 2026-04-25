@@ -15,7 +15,7 @@
 			<key>Red Component</key>
 			<real>0.9803921569</real>
 		</dict>
-	
+
 		<key>Ansi 1 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -29,7 +29,7 @@
 			<key>Red Component</key>
 			<real>0.8823529412</real>
 		</dict>
-	
+
 		<key>Ansi 2 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -43,7 +43,7 @@
 			<key>Red Component</key>
 			<real>0.1490196078</real>
 		</dict>
-	
+
 		<key>Ansi 3 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -57,7 +57,7 @@
 			<key>Red Component</key>
 			<real>0.8000000000</real>
 		</dict>
-	
+
 		<key>Ansi 4 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -71,7 +71,7 @@
 			<key>Red Component</key>
 			<real>0.8823529412</real>
 		</dict>
-	
+
 		<key>Ansi 5 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -85,7 +85,7 @@
 			<key>Red Component</key>
 			<real>0.4392156863</real>
 		</dict>
-	
+
 		<key>Ansi 6 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -99,7 +99,7 @@
 			<key>Red Component</key>
 			<real>0.1098039216</real>
 		</dict>
-	
+
 		<key>Ansi 7 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -113,7 +113,7 @@
 			<key>Red Component</key>
 			<real>0.1607843137</real>
 		</dict>
-	
+
 		<key>Ansi 8 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -127,7 +127,7 @@
 			<key>Red Component</key>
 			<real>0.6470588235</real>
 		</dict>
-	
+
 		<key>Ansi 9 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -141,7 +141,7 @@
 			<key>Red Component</key>
 			<real>0.8823529412</real>
 		</dict>
-	
+
 		<key>Ansi 10 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -155,7 +155,7 @@
 			<key>Red Component</key>
 			<real>0.1490196078</real>
 		</dict>
-	
+
 		<key>Ansi 11 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -169,7 +169,7 @@
 			<key>Red Component</key>
 			<real>0.8000000000</real>
 		</dict>
-	
+
 		<key>Ansi 12 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -183,7 +183,7 @@
 			<key>Red Component</key>
 			<real>0.8823529412</real>
 		</dict>
-	
+
 		<key>Ansi 13 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -197,7 +197,7 @@
 			<key>Red Component</key>
 			<real>0.4392156863</real>
 		</dict>
-	
+
 		<key>Ansi 14 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -211,7 +211,7 @@
 			<key>Red Component</key>
 			<real>0.1098039216</real>
 		</dict>
-	
+
 		<key>Ansi 15 Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -225,7 +225,7 @@
 			<key>Red Component</key>
 			<real>0.1607843137</real>
 		</dict>
-	
+
 		<key>Cursor Text Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -239,7 +239,7 @@
 			<key>Red Component</key>
 			<real>0.4392156863</real>
 		</dict>
-	
+
 		<key>Selected Text Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -253,7 +253,7 @@
 			<key>Red Component</key>
 			<real>0.1607843137</real>
 		</dict>
-	
+
 		<key>Foreground Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -267,7 +267,7 @@
 			<key>Red Component</key>
 			<real>0.1607843137</real>
 		</dict>
-	
+
 		<key>Background Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -281,7 +281,7 @@
 			<key>Red Component</key>
 			<real>0.9803921569</real>
 		</dict>
-	
+
 		<key>Bold Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -295,7 +295,7 @@
 			<key>Red Component</key>
 			<real>0.1098039216</real>
 		</dict>
-	
+
 		<key>Selection Color</key>
 		<dict>
 			<key>Alpha Component</key>
@@ -309,7 +309,7 @@
 			<key>Red Component</key>
 			<real>0.7490196078</real>
 		</dict>
-	
+
 		<key>Cursor Color</key>
 		<dict>
 			<key>Alpha Component</key>
