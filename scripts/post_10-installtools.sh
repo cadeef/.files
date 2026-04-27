@@ -24,20 +24,13 @@ if [[ $(uname) == 'Darwin' ]]; then
     fi
 fi
 
-# Install pipx-based tools (pipx installed by brew ☝️)
-pipx_tools=(cade-task sqlite-utils pyinstrument)
+# Install Python-based tools with uv
+uv_tools=(cade-task sqlite-utils pyinstrument)
 
-if hash pipx &>/dev/null; then
-    pipx_installed=$(pipx list --short | awk '{print $1}')
-
-    for tool in "${pipx_tools[@]}"; do
-        if [[ ! "${pipx_installed[*]}" =~ ${tool} ]]; then
-            pipx install "${tool}"
-        fi
+if hash uv &>/dev/null; then
+    for tool in "${uv_tools[@]}"; do
+        uv tool install --upgrade "${tool}"
     done
-
-    # Upgrade installed packages
-    pipx upgrade-all
 else
-    echo "WARNING: pipx not found, tools not installed: ${pipx_tools[*]} "
+    echo "WARNING: uv not found, tools not installed: ${uv_tools[*]} "
 fi
