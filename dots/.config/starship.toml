@@ -1,6 +1,6 @@
 
 format = '''
-${custom.huh} $directory(\($git_branch$git_status\))$python $character
+${custom.huh} $directory(\($git_branch$git_status\)) $character
 '''
 
 [directory]
