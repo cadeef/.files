@@ -83,12 +83,11 @@ alias hs='hugo serve'
 alias pcr='prek run -a'
 
 # `task` shortcuts
-alias t='task list'
-alias tl='task lists'
-alias ta='task add'
-alias tc='task complete'
-alias to='task open'
-alias tsync='task sync'
+alias t='chief tasks list'
+alias tl='chief tasks lists'
+alias ta='chief tasks add'
+alias tc='chief tasks complete'
+alias to='chief tasks open'
 
 # Just
 # shellcheck disable=SC2139

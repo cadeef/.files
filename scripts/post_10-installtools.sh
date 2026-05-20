@@ -25,12 +25,15 @@ if [[ $(uname) == 'Darwin' ]]; then
 fi
 
 # Install Python-based tools with uv
-uv_tools=(cade-task sqlite-utils pyinstrument)
+uv_tools=(sqlite-utils pyinstrument)
 
 if hash uv &>/dev/null; then
     for tool in "${uv_tools[@]}"; do
         uv tool install --upgrade "${tool}"
     done
+
+    # Install chief
+    uv tool install --upgrade git+ssh://git@github.com/cadeef/chief.git
 else
     echo "WARNING: uv not found, tools not installed: ${uv_tools[*]} "
 fi
