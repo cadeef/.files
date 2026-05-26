@@ -46,7 +46,7 @@
     # Remove branches that have already been merged with master (and avoid blowing away master)
     dm = "!f() { git branch --merged | grep -Ev '^\\*|([[:space:]]+master|main$)' | xargs -n 1 git branch -d; }; f"
     # Copy current branch to clipboard (MacOS); stolen from https://github.com/holman/dotfiles/blob/master/bin/git-copy-branch-name
-    cbn = "!f() { git rev-parse --abbrev-ref HEAD | tr -d '\n' | tr -d ' ' | pbcopy; }; f"
+    cbn = "!f() { git rev-parse --abbrev-ref HEAD | tr -d "\\n" | tr -d ' ' | pbcopy; }; f"
 
 [apply]
     # Detect whitespace errors when applying a patch
